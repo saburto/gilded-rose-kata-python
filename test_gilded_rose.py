@@ -23,6 +23,13 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         self.assertEqual(items[0].quality, 21)
+
+    def test_backstage_passes_smaller_quality_than50_and_sell_in_smaller_than_6(self):
+        items = [Item(name="Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=20)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual(items[0].quality, 23)
+
         
 if __name__ == '__main__':
     unittest.main()
